@@ -65,13 +65,19 @@ float module_validity_strain_score(
   }
   // the arbitrary function for strain
   // TODO: get a better function for strain from mechanical
-  
-  return 0.0;
+  float strain = 0.0;
+  for (auto v : p_vectors) {
+    strain += vector2d::length_squared(v);
+  }
+  return strain;
 }
 
 // calculate freest state
 swerve_module_state calculate_freest_state(swerve_module p_module,
-                                           vector2d p_target_vector);
+                                           vector2d p_target_vector)
+{
+  
+}
 // calc closest equivalent
 swerve_module_state calculate_closest_state(swerve_module p_module,
                                             vector2d p_target_vector);
