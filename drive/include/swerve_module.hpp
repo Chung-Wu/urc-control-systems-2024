@@ -24,7 +24,7 @@ class swerve_module
 {
 public:
   swerve_module_settings settings;
-
+  explicit swerve_module(swerve_module_settings const& p_settings);
   // vars:
   // steer postion read & control (maybe also contains restrictions) (has homing
   // function) prop vel read & control (maybe also contrans restrictions)
@@ -48,5 +48,7 @@ public:
   void update_tolerance_debouncer();
   //tolorance timeout
   bool tolerance_timed_out();
+private:
+  swerve_module_state target_state;
 };
 }  // namespace sjsu::drive
